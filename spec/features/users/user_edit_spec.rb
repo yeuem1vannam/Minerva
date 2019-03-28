@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -5,7 +7,7 @@ Warden.test_mode!
 #   As a user
 #   I want to edit my user profile
 #   So I can change my email address
-feature 'User edit', :devise do
+feature "User edit", :devise do
 
   after(:each) do
     Warden.test_reset!
@@ -15,14 +17,14 @@ feature 'User edit', :devise do
   #   Given I am signed in
   #   When I change my email address
   #   Then I see an account updated message
-  scenario 'user changes email address' do
+  scenario "user changes email address" do
     user = FactoryBot.create(:user)
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
     visit edit_user_registration_path(user)
-    fill_in 'Email', :with => 'newemail@example.com'
-    fill_in 'Current password', :with => user.password
-    click_button 'Update'
-    txts = [I18n.t( 'devise.registrations.updated'), I18n.t( 'devise.registrations.update_needs_confirmation')]
+    fill_in "Email", with: "newemail@example.com"
+    fill_in "Current password", with: user.password
+    click_button "Update"
+    txts = [I18n.t("devise.registrations.updated"), I18n.t("devise.registrations.update_needs_confirmation")]
     expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end
 
@@ -32,11 +34,11 @@ feature 'User edit', :devise do
   #   Then I see my own 'edit profile' page
   scenario "user cannot cannot edit another user's profile", :me do
     me = FactoryBot.create(:user)
-    other = FactoryBot.create(:user, email: 'other@example.com')
-    login_as(me, :scope => :user)
+    other = FactoryBot.create(:user, email: "other@example.com")
+    login_as(me, scope: :user)
     visit edit_user_registration_path(other)
-    expect(page).to have_content 'Edit User'
-    expect(page).to have_field('Email', with: me.email)
+    expect(page).to have_content "Edit User"
+    expect(page).to have_field("Email", with: me.email)
   end
 
 end

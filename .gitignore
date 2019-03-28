@@ -43,6 +43,7 @@ db/*.sqlite3
 /public/stylesheets/compiled
 /public/system/*
 /public/packs/*
+/public/packs-test/*
 !/public/packs/.keep
 /spec/tmp/*
 /cache
