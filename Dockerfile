@@ -12,11 +12,13 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update -qq && apt-get install -y \
-  build-essential mysql-client libv8-dev curl \
+  build-essential mysql-client libv8-dev curl vim \
   nodejs yarn && rm -rf /var/lib/apt/lists/*
 
 RUN echo "gem: --no-document --no-rdoc --no-ri" >> ~/.gemrc
 
 RUN gem install bundler
+
+ENV EDITOR=vim
 
 CMD ["/bin/sh"]

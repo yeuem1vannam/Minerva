@@ -89,3 +89,4 @@ pickle-email-*.html
 /node_modules
 /storage/*
 !/storage/.keep
+/config/master.key

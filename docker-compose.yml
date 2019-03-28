@@ -32,7 +32,7 @@ services:
       - |
         set -ex
         bundle check || bundle install
-        bundle exec guard -g rails --no-bundler-warning --no-interactions
+        bundle exec guard --no-bundler-warning --no-interactions
 
   test:
     <<: *base
