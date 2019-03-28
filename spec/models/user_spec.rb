@@ -12,4 +12,7 @@ describe User do
     expect(@user.email).to match "user@example.com"
   end
 
+  describe "enum `role'" do
+    it { should define_enum_for(:role).with_values([:user, :vip, :admin]) }
+  end
 end
