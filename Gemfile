@@ -76,4 +76,5 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-callback-matchers"
   gem "shoulda-matchers"
+  gem "rspec_junit_formatter", require: false
 end
