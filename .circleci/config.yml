@@ -53,6 +53,11 @@ jobs:
     steps:
       - *attach_code
       # run tests!
+      # - run:
+      #     name: pronto
+      #     command: |
+      #       RUBOCOP_CONFIG=`pwd`/.rubocop.yml \
+      #         pronto run -f github_pr -c origin/master
       - run:
           name: run rubocop
           command: bundle exec rubocop
