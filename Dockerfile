@@ -1,6 +1,6 @@
 FROM ruby:2.6.1
 
-LABEL maintainer="p.hoai.le@sonyged.com"
+LABEL maintainer="phuongle@botfi.io"
 LABEL description="Base image for Rails in Ruby 2.6.1"
 LABEL manual="Install tools required for project"
 
@@ -18,6 +18,9 @@ RUN apt-get update -qq && apt-get install -y \
 RUN echo "gem: --no-document --no-rdoc --no-ri" >> ~/.gemrc
 
 RUN gem install bundler
+RUN gem install sassc
+# ADD ./Gemfile /tmp/Gemfile
+# RUN bundle instlal --gemfile=/tmp/Gemfile
 
 ENV EDITOR=vim
 
