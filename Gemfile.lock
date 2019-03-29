@@ -191,6 +191,8 @@ GEM
     kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -301,6 +303,8 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    rspec_junit_formatter (0.4.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (0.66.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -411,6 +415,7 @@ DEPENDENCIES
   html2haml
   jbuilder (~> 2.5)
   launchy
+  letter_opener
   listen (>= 3.0.5, < 3.2)
   pg
   pry-rails
@@ -423,6 +428,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   rspec-rails
+  rspec_junit_formatter
   rubocop-github
   rubocop-rspec
   sassc-rails

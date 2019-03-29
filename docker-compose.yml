@@ -5,6 +5,8 @@ x-base: &base
   tty: true
   stdin_open: true
   working_dir: /workspace
+  environment:
+    PORT: 3000
   volumes:
     - .:/workspace
     - bundle-cache:/usr/local/bundle
@@ -25,14 +27,14 @@ services:
     container_name: 'minerva.app'
     ports:
       - 3000:3000
-      - 3035:3035
     command:
       - /bin/sh
       - -c
       - |
         set -ex
         bundle check || bundle install
-        bundle exec guard -g rails --no-bundler-warning --no-interactions
+        sleep infinity
+        bundle exec guard
 
   test:
     <<: *base

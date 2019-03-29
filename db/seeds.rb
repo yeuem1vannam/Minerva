@@ -7,6 +7,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = CreateAdminService.new.call
-puts "CREATED ADMIN USER: " << user.email
-# Environment variables (ENV['...']) can be set in the file .env file.
+#
+USER_EMAIL = "user@#{Rails.application.credentials.domain_name}"
+VIP_EMAIL = "vip@#{Rails.application.credentials.domain_name}"
+ADMIN_EMAIL = "admin@#{Rails.application.credentials.domain_name}"
+
+User.find_or_create_by!(email: USER_EMAIL) do |user|
+  user.password = user.password_confirmation = "Aa@123456"
+  user.role = :user
+  puts "CREATE #{user.email}"
+end
+
+User.find_or_create_by!(email: VIP_EMAIL) do |user|
+  user.password = user.password_confirmation = "Aa@123456"
+  user.role = :vip
+  user.confirm
+  puts "CREATE #{user.email}"
+end
+
+User.find_or_create_by!(email: ADMIN_EMAIL) do |user|
+  user.password = user.password_confirmation = "Aa@123456"
+  user.role = :admin
+  user.confirm
+  puts "CREATE #{user.email}"
+end
