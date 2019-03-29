@@ -17,7 +17,7 @@ feature "User edit", :devise do
   #   Given I am signed in
   #   When I change my email address
   #   Then I see an account updated message
-  scenario "user changes email address" do
+  xscenario "user changes email address" do
     user = FactoryBot.create(:user)
     login_as(user, scope: :user)
     visit edit_user_registration_path(user)
