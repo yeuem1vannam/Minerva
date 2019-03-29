@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Term, type: :model do
   it { should have_db_column(:word).with_options null: false }

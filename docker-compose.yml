@@ -6,7 +6,6 @@ x-base: &base
   stdin_open: true
   working_dir: /workspace
   environment:
-    DISABLE_SPRING: 1
     PORT: 3000
   volumes:
     - .:/workspace

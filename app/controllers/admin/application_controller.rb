@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # All Administrate controllers inherit from this `Admin::ApplicationController`,
 # making it the ideal place to put authentication logic or other
 # before_actions.
@@ -9,6 +11,15 @@ module Admin
     include Administrate::Punditize
 
     before_action :authenticate_user!
+    before_action :authenticate_admin
+
+    protected
+
+    def authenticate_admin
+      unless current_user.admin?
+        redirect_to root_path, alert: "Access denied"
+      end
+    end
 
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.
