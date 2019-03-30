@@ -9,30 +9,37 @@ class ApplicationPolicy
   end
 
   def index?
+    return false unless current_user
     current_user.admin?
   end
 
   def new?
+    return false unless current_user
     current_user.admin?
   end
 
   def create?
+    return false unless current_user
     current_user.admin?
   end
 
   def show?
+    return false unless current_user
     current_user.admin?
   end
 
   def edit?
+    return false unless current_user
     current_user.admin?
   end
 
   def update?
+    return false unless current_user
     current_user.admin?
   end
 
   def destroy?
+    return false unless current_user
     current_user.admin?
   end
 
