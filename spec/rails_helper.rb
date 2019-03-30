@@ -8,14 +8,19 @@ require File.expand_path("../../config/environment", __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
 require "shoulda/matchers"
+require "pundit/matchers"
 # Add additional requires below this line. Rails is not loaded until this point!
-# shoulda-matcher
-#
+
+# shoulda-matchers
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
     with.library :rails
   end
+end
+# pundit-matchers
+Pundit::Matchers.configure do |config|
+  config.user_alias = :current_user
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

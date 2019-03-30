@@ -73,6 +73,7 @@ group :test do
   gem "chromedriver-helper"
   gem "database_cleaner"
   gem "launchy"
+  gem "pundit-matchers", "~> 1.6.0"
   gem "rspec_junit_formatter", require: false
   gem "selenium-webdriver"
   gem "shoulda-callback-matchers"
