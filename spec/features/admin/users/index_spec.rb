@@ -17,7 +17,8 @@ feature "admin > users > index", :devise do
   end
 
   scenario "admin visit /admin/users page" do
-    expect(page).to have_current_path admin_users_path
+    expect(page.current_path).to eq admin_users_path
+    # expect(page).to have_current_path admin_users_path
     within ".navigation" do
       expect(page).to have_link nil, href: admin_users_path
     end
@@ -31,10 +32,10 @@ feature "admin > users > index", :devise do
       logout(:user)
       user = create :user
       login_as user, scope: :user
+      visit admin_users_path
     end
 
     scenario "user visit admin/users page" do
-      visit admin_users_path
       expect(page).to have_current_path root_path
       expect(page).to have_content /Access denied/i
     end
