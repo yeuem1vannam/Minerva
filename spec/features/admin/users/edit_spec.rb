@@ -1,6 +1,4 @@
-
 # fronzen_string_literal: true
-
 include Warden::Test::Helpers
 Warden.test_mode!
 
@@ -29,7 +27,6 @@ feature "admin > users > edit", :devise do
     fill_in "user_password", :with => "Ab@123456"
     fill_in "user_password_confirmation", :with => "Ab@123456 "
     click_button("Update User")
-    # expect page to have url show
+    expect(page).to have_css('.form-actions input')
   end
 end
-

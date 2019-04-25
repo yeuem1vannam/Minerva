@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # fronzen_string_literal: true
 
@@ -13,17 +14,17 @@ feature "admin > users > show", :devise do
  let(:admin) { create :user, :admin }
  before do
    login_as admin, scope: :user
-   visit show_user_path
-  end
+   visit admin_users_path
+ end
 
   scenario "user visit admin/user/show page" do
-    visit show_admin_user_path
-    expect(page).to have_current_path show_user_path
-    #expect(page).to have_content /Access denied/i 
+    visit admin_users_path
+    expect(page).to have_current_path admin_users_path
+    #expect(page).to have_content /Access denied/i
   end
 
   scenario "show" do
    # expect(page).to have_button("Show User")
-    expect(page).to have_link href: edit_admin_user_path
+    expect(page).to have_link href: edit_admin_user_path(admin)
   end
 end
