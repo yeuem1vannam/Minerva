@@ -18,7 +18,6 @@ feature "admin > users > index", :devise do
 
   scenario "admin visit /admin/users page" do
     expect(page.current_path).to eq admin_users_path
-    # expect(page).to have_current_path admin_users_path
     within ".navigation" do
       expect(page).to have_link nil, href: admin_users_path
     end

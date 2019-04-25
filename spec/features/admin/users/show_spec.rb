@@ -20,11 +20,10 @@ feature "admin > users > show", :devise do
   scenario "user visit admin/user/show page" do
     visit admin_users_path
     expect(page).to have_current_path admin_users_path
-    #expect(page).to have_content /Access denied/i
   end
 
   scenario "show" do
-   # expect(page).to have_button("Show User")
+    expect(page).to have_css('.button')
     expect(page).to have_link href: edit_admin_user_path(admin)
   end
 end

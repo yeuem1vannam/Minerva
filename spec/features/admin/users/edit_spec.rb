@@ -23,7 +23,6 @@ feature "admin > users > edit", :devise do
   scenario "User edit fill" do
     fill_in "user_email", :with => "user@example.com"
     fill_in "user_name", :with => "elliots"
-    #select "user", form: "select"
     fill_in "user_password", :with => "Ab@123456"
     fill_in "user_password_confirmation", :with => "Ab@123456 "
     click_button("Update User")
