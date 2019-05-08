@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 class Phrase < ApplicationRecord
-  validates :phrase, presence: true,
+  validates :sentence, presence: true
+  #validates :name, presence: true
 end
