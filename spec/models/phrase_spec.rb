@@ -3,6 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Phrase, type: :model do
-  #it { should validate_presence_of(:sentence)}
+  it { should validate_presence_of(:sentence)}
   it { should have_db_column(:sentence).with_options null: false }
 end
