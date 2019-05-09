@@ -16,7 +16,6 @@ feature "admin > users > show", :devise do
    login_as admin, scope: :user
    visit admin_users_path
  end
-
   scenario "user visit admin/user/show page" do
     visit admin_users_path
     expect(page).to have_current_path admin_users_path
