@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_054827) do
+ActiveRecord::Schema.define(version: 2019_05_21_033935) do
 
   create_table "phrases", force: :cascade do |t|
     t.text "sentence", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phrases_terms", force: :cascade do |t|
+    t.integer "phrase_id"
+    t.integer "term_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["phrase_id"], name: "index_phrases_terms_on_phrase_id"
+    t.index ["term_id"], name: "index_phrases_terms_on_term_id"
   end
 
   create_table "terms", force: :cascade do |t|
@@ -45,4 +54,6 @@ ActiveRecord::Schema.define(version: 2019_05_07_054827) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "phrases_terms", "phrases"
+  add_foreign_key "phrases_terms", "terms"
 end
