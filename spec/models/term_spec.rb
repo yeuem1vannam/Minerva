@@ -7,4 +7,5 @@ RSpec.describe Term, type: :model do
   it { should have_db_column(:meaning).with_options null: true }
   it { should have_db_column(:reading).with_options null: true }
   it { should have_db_index :word }
+  it { should have_and_belong_to_many(:phrases) }
 end
