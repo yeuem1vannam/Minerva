@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class PhraseDashboard < Administrate::BaseDashboard
@@ -18,7 +20,7 @@ class PhraseDashboard < Administrate::BaseDashboard
     :id,
     :sentence,
     :created_at,
-    :updated_at.    
+    :updated_at,
   ].freeze
 
   FORM_ATTRIBUTES = [
