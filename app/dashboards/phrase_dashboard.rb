@@ -24,7 +24,6 @@ class PhraseDashboard < Administrate::BaseDashboard
   ].freeze
 
   FORM_ATTRIBUTES = [
-    :id,
     :sentence,
   ].freeze
 end
