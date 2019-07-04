@@ -13,19 +13,19 @@ class TermDashboard < Administrate::BaseDashboard
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
-  :id,
-  :word,
-  :meaning,
-  :reading
+    :id,
+    :word,
+    :meaning,
+    :reading
   ].freeze
 
-  SHOW_PAGE_ATTRIBUTE = [
-  :id,
-  :word,
-  :meaning,
-  :reading,
-  :created_at,
-  :updated_at,
+  SHOW_PAGE_ATTRIBUTES = [
+    :id,
+    :word,
+    :meaning,
+    :reading,
+    :created_at,
+    :updated_at,
   ].freeze
 
   FORM_ATTRIBUTES = [
