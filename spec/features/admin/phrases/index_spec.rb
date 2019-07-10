@@ -22,8 +22,6 @@ feature "admin > phrases > index", :devise do
       expect(page).to have_link nil, href: admin_phrases_path
     end
     expect(page).to have_link "New phrase", href: new_admin_phrase_path
-    #expect(page).to have_content admin.email
-    #expect(page).to have_link "Edit", href: edit_admin_phrase_path(admin)
   end
 
   context "when normal user" do
