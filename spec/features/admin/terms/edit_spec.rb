@@ -22,4 +22,18 @@ feature "admin > terms > edit", :devise do
     expect(page).to have_button("Update Term")
     expect(page).to have_link href: admin_term_path(term)
   end
+
+  context "when normal user" do
+    before do
+      logout(:user)
+      user = create :user
+      login_as user, scope: :user
+      visit admin_terms_path
+    end
+
+    scenario "user visit admin/terms page" do
+      expect(page).to have_current_path root_path
+      expect(page).to have_content /Access denied/i
+    end
+  end
 end
