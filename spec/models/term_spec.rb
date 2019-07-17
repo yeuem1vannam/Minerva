@@ -17,7 +17,7 @@ RSpec.describe Term, type: :model do
   #Test_Reading :
   it { should validate_presence_of(:reading) }
   it { should validate_length_of(:reading).is_at_most(255) }
-  it { should validate_presence_of(:reading).with_options null: true }
+  it { should have_db_column(:reading).with_options null: true }
   #end.
 
   it { should have_and_belong_to_many(:phrases) }
