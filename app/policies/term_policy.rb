@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class TermPolicy < ApplicationPolicy
   def show?
-     super or current_user == model
+    super or current_user == model
   end
 
   def destroy?

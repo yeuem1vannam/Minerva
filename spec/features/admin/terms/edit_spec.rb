@@ -14,8 +14,8 @@ feature "admin > terms > edit", :devise do
   let(:term) { create :term }
 
   before do
-   login_as admin, scope: :user
-   visit edit_admin_term_path(term)
+    login_as admin, scope: :user
+    visit edit_admin_term_path(term)
   end
 
   scenario "user visit admin/term/edit page" do
