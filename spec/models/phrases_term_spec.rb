@@ -3,6 +3,8 @@
 require "rails_helper"
 
 RSpec.describe PhrasesTerm, type: :model do
+  it { should belong_to(:phrase) }
+  it { should belong_to(:term) }
 
   it do
     phrase = create(:phrase)
