@@ -15,12 +15,6 @@ feature "admin > phrasesterms > show", :devise do
     visit admin_phrases_terms_path
   end
 
-  scenario "admin visit /admin/phrasesTerms/show page" do
-    within ".navigation" do
-      expect(page).to have_link nil, href: admin_phrases_terms_path
-    end
-  end
-
   scenario "visit content /admin/phrasesTerms page" do
     within ".main-content__header" do
       expect(page).to have_link "New phrases term", href: new_admin_phrases_term_path
