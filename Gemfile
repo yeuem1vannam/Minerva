@@ -22,13 +22,13 @@ gem "jbuilder", "~> 2.5"
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.4.1", require: false
-
 gem "administrate"
+gem "bootsnap", ">= 1.4.1", require: false
 gem "devise"
 gem "devise_invitable"
 gem "haml-rails"
 gem "high_voltage"
+gem "jquery-rails", "~> 4.3"
 gem "pundit"
 
 group :production do
