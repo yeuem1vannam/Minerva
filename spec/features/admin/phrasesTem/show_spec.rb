@@ -10,29 +10,15 @@ feature "admin > phrasesterms > show", :devise do
   end
 
   let(:admin) { create :user, :admin }
+  let(:phrases_term) { create :phrases_term }
+
   before do
     login_as admin, scope: :user
     visit admin_phrases_terms_path
   end
 
-  scenario "visit content /admin/phrasesTerms page" do
-    within ".main-content__header" do
-      expect(page).to have_link "New phrases term", href: new_admin_phrases_term_path
-    end
-      expect(page).to have_css ".main-content__body table"
-  end
-
-  context "when normal user" do
-    before do
-      logout(:user)
-      user = create :user
-      login_as user, scope: :user
-      visit admin_phrases_terms_path
-    end
-
-    scenario "user visit admin/phrases_terms page" do
-      expect(page).to have_current_path root_path
-      expect(page).to have_content /Access denied/i
-    end
+  scenario "user visit /admin/phrasesTerms page" do
+    visit admin_phrases_terms_path
+      expect(page).to have_current_path admin_phrases_terms_path
   end
 end
