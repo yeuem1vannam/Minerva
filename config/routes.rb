@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users
     resources :terms
     resources :phrases_terms
+    resources :phrases
   end
 
   root to: "visitors#index"
